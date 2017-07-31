@@ -1,0 +1,54 @@
+2017-07-31T08:54:48+00:00
+TABLE: wp_posts
+ID: 35
+BEFORE: 
+{:ja}Du lich o Ho chi minh japanese{:}
+AFTER: 
+
+=================
+
+2017-07-31T08:54:48+00:00
+TABLE: wp_posts
+ID: 35
+BEFORE: 
+{:en}Du lich o Ho chi minh{:}{:ja}Du lich o Ho chi minh japanese{:}
+AFTER: 
+Du lich o Ho chi minh
+=================
+
+2017-07-31T08:54:48+00:00
+TABLE: wp_posts
+ID: 41
+BEFORE: 
+{:en}Ho Chi Minh{:}{:ja}Ho Chi Minh{:}
+AFTER: 
+Ho Chi Minh
+=================
+
+2017-07-31T08:54:50+00:00
+TABLE: wp_options
+ID: 3
+BEFORE: 
+{:en}Suntour{:}{:ja}Suntour ja{:}
+AFTER: 
+Suntour
+=================
+
+2017-07-31T08:54:50+00:00
+TABLE: wp_options
+ID: 4
+BEFORE: 
+{:en}Just another WordPress site{:}{:ja}Just another WordPress site ja{:}
+AFTER: 
+Just another WordPress site
+=================
+
+2017-07-31T08:54:50+00:00
+TABLE: wp_terms
+ID: 4
+BEFORE: 
+{:en}Ho Chui Minh{:}{:ja}Ho Chi Minh Japanese{:}
+AFTER: 
+Ho Chui Minh
+=================
+
