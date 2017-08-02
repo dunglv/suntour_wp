@@ -1,3 +1,94 @@
+#backup .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+}
+
+#backup .overlay .overlay-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+
+    outline: none;
+    z-index: 100;
+    color: #fff;
+    background: #fa000d;
+}
+
+#backup .overlay nav {
+	text-align: center;
+	position: relative;
+	top: 0;
+	height: 100%;
+}
+
+#backup .overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+
+#backup .overlay ul li {
+	display: block;
+	min-height: 54px;
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+}
+
+#backup .overlay ul li a {
+    font-size: 20px;
+    letter-spacing: 6px;
+    font-weight: 300;
+    display: block;
+    color: #fff;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+	text-decoration:none;
+}
+
+#backup .overlay ul li a:hover,
+#backup .overlay ul li a:focus {
+	color: #fa000d;
+}
+
+#backup .overlay-simplegenie {
+	visibility: hidden;
+	-webkit-transform: translateY(60%) scale(0);
+	transform: translateY(60%) scale(0);
+	-webkit-transition: -webkit-transform 0.4s, visibility 0s 0.4s;
+	transition: transform 0.4s, visibility 0s 0.4s;
+}
+
+#backup .overlay-simplegenie.open {
+	visibility: visible;
+	-webkit-transform: translateY(0%) scale(1);
+	transform: translateY(0%) scale(1);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+@media screen and (max-height: 30.5em) {
+	#backup .overlay nav {
+		height: 70%;
+		font-size: 34px;
+	}
+	#backup .overlay ul li {
+		min-height: 34px;
+	}
+}
+
+
 /* Overlay style */
 .overlay {
     position: fixed;
@@ -11,11 +102,11 @@
 
 /* Overlay closing cross */
 .overlay .overlay-close {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 5px;
+    top: 5px;
     overflow: hidden;
     border: none;
     /* background: url(../img/cross.png) no-repeat center center; */
@@ -32,10 +123,6 @@
 .overlay nav {
 	text-align: center;
 	position: relative;
-	top: 42%;
-	height: 60%;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
 }
 
 .overlay ul {
@@ -45,15 +132,13 @@
 	display: inline-block;
 	height: 100%;
 	position: relative;
+	margin-top: 0px;
 }
 
 .overlay ul li {
-	display: block;
-	height: 20%;
-	height: calc(100% / 5);
-	min-height: 54px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+	display: inline-block;
+	margin: 5px;
+	
 }
 
 .overlay ul li a {
@@ -65,36 +150,102 @@
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
 	text-decoration:none;
+	border: 1px solid #fff;
+	padding: 5px;
+	border-radius: 0;
+	position: relative;
 }
 
 .overlay ul li a:hover,
 .overlay ul li a:focus {
-	color: #fa000d;
+	color: #fff;
 }
 
+.overlay ul li a::before{
+	content: '';
+	position: absolute;
+	background: #fa000d;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	max-height: 0;
+	z-index: -1;
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+}
+.overlay ul li:hover a::before{
+	max-height: 100px;
+	-webkit-transition: ease-in 0.2s;
+	-o-transition: ease-in 0.2s;
+	transition:ease-in  0.2s;
+}
 /* Effects */
 .overlay-simplegenie {
-	visibility: hidden;
-	-webkit-transform: translateY(60%) scale(0);
+	/*visibility: hidden;*/
+	/*-webkit-transform: translateY(60%) scale(0);
 	transform: translateY(60%) scale(0);
 	-webkit-transition: -webkit-transform 0.4s, visibility 0s 0.4s;
-	transition: transform 0.4s, visibility 0s 0.4s;
+	transition: transform 0.4s, visibility 0s 0.4s;*/
+
+	right: -300px;
+	left: auto;
+	width: 300px;
+	padding: 50px 10px;
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
 }
 
-.overlay-simplegenie.open {
-	visibility: visible;
-	-webkit-transform: translateY(0%) scale(1);
-	transform: translateY(0%) scale(1);
-	-webkit-transition: -webkit-transform 0.4s;
-	transition: transform 0.4s;
+
+
+body{
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+	overflow: initial;
+	overflow-x: initial !important;
 }
 
+
+.w3ls_search{
+	margin-bottom: 15px;
+	border-radius: 40px;
+	float: none;
+	background: rgba(255, 255, 255, 0.17);
+	border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.w3ls_search .cd-search input{padding: 8px 10px;color: #ddd;}
 @media screen and (max-height: 30.5em) {
-	.overlay nav {
+	/*.overlay nav {
 		height: 70%;
 		font-size: 34px;
 	}
 	.overlay ul li {
 		min-height: 34px;
+	}*/
+}
+
+@media screen and (max-width: 991px){
+	body.open-menu{
+		-webkit-transform: translateX(-300px);
+		-ms-transform: translateX(-300px);
+		-o-transform: translateX(-300px);
+		transform: translateX(-300px);
+		-webkit-transition: 0.2s;
+		-o-transition: 0.2s;
+		transition: 0.2s;
 	}
+	.overlay-simplegenie.open {
+	visibility: visible;
+	/*-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);*/
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
 }

@@ -1,0 +1,35 @@
+.login h1 a {
+    background-image: url(../images/logo.png);
+    border: 1px solid #dc3232;
+    height: 80px;
+    width: 83px;
+    display: inline-block;
+    background-size: 90px;
+    background-position: center 9px;
+    padding: 5px;
+    border-radius: 100%;
+    box-shadow: 0 0 0px 8px #e6e4e4;
+}
+
+ .wp-core-ui #loginform .button-primary {
+    background: rgba(204, 0, 0, .8);
+    border-color: rgba(204, 0, 0, .8) rgba(204, 0, 0, .8) #dc3232;
+    -webkit-box-shadow: 0 1px 0 #dc3232;
+    box-shadow: 0 1px 0 #5c5f61;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #dc3232, 1px 0 1px #dc3232, 0 1px 1px #dc3232, -1px 0 1px #dc3232;
+}
+
+.login #login_error,
+.login .message {
+    border-left: 4px solid #dc3232;
+}
+
+.wp-core-ui #loginform .button-primary.focus,
+.wp-core-ui #loginform .button-primary.hover,
+.wp-core-ui #loginform .button-primary:focus,
+.wp-core-ui #loginform .button-primary:hover {
+    background: #333;
+    border-color: #dc3232;
+}

@@ -4,19 +4,19 @@
 	<div class="container">
 		<div class="agileinfo_footer_bottom">
 				<div class="col-md-6 agileinfo_footer_bottom_grid">
-					<h6>Links</h6>
+					<h6><?php echo __('Links', 'suntour'); ?></h6>
 					<?php 
 						 $args = array(
 					        'orderby' => 'id',
 					        'hide_empty'=> 0,
-					        'number' => 5
-					    );
+					        'number' => 5,
+					    	);
 						$categories = get_categories($args);
 					 ?>
 						<ul class="tag2 tag_agileinfo">
 							<li><a href="/" class="scroll"><?php __('Home', 'suntour') ?></a></li>
 							<?php foreach ($categories as $cat) : ?>
-							<li><a href="" class="scroll"><?php echo __($cat->name, 'suntour') ?></a></li>
+							<li><a href="<?php echo get_category_link($cat->cat_ID) ?>" ><?php echo __($cat->name, 'suntour') ?></a></li>
 							<?php endforeach; ?>
 
 							<!-- <li><a href="#services" class="scroll">Services</a></li>
@@ -26,7 +26,7 @@
 						</ul>
 				</div>
 				<div class="col-md-6 agileinfo_footer_bottom_grid">
-					<h6>Follow Us</h6>
+					<h6><?php echo __('Follow Us', 'suntour') ?></h6>
 					<ul class="social-nav model-3d-0 footer-social w3_agile_social">
 						<li><a href="#" class="facebook">
 							  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -45,7 +45,7 @@
 				<div class="clearfix"> </div>
 		</div>
 		<div class="agileinfo_footer_bottom1">
-				<h2><a href="index.html"><img alt="Suntour" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" class="logo"></a></h2>
+				<h2><a href="<?php echo home_url(); ?>"><img alt="<?php echo __('Suntour', 'suntour') ?>" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" class="logo"></a></h2>
 				<p>© 2017 Suntour. All rights reserved <a href="<?php echo home_url(); ?>">Suntour</a></p>
 				<div class="clearfix"> </div>
 		</div>
@@ -54,15 +54,14 @@
 <!-- //footer -->
 <!-- js -->
 <?php wp_footer(); ?>
-<script type='text/javascript' src='<?php echo get_template_directory_uri(); ?>/js/jquery-2.2.3.min.js'></script>
 <!-- //js -->
 <!-- Calendar -->
-				<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.js"></script>
+				<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.js"></script>
 				  <script>
 						  $(function() {
 							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
 						  });
-				  </script>
+				  </script> -->
 			<!-- //Calendar -->
  
 
@@ -73,8 +72,8 @@
 <!--//search-bar-->
 
 <!--responsiveslides js-->
-<script src="<?php echo get_template_directory_uri(); ?>/js/responsiveslides.min.js"></script>
-			<script>
+<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/responsiveslides.min.js"></script> -->
+			<!-- <script>
 						// You can also use "$(window).load(function() {"
 						$(function () {
 						  // Slideshow 4
@@ -93,10 +92,10 @@
 						  });
 					
 						});
-			</script>
+			</script> -->
 <!--responsiveslides js-->
 <!-- flexSlider -->
-					<script defer src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider.js"></script>
+					<!-- <script defer src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider.js"></script>
 					<script type="text/javascript">
 					$(window).load(function(){
 					  $('.flexslider').flexslider({
@@ -106,7 +105,7 @@
 						}
 					  });
 					});
-				  </script>
+				  </script> -->
 				<!-- //flexSlider -->
 <!--menu script-->
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.6.2.min.js"></script>
@@ -152,6 +151,7 @@
 
 <!--js for bootstrap working-->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 <!-- //for bootstrap working -->
 </body>
 </html>

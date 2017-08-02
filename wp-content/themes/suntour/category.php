@@ -12,6 +12,7 @@ get_header();
 <?php
 $current_id = get_queried_object()->term_id;
 $posts = get_posts(array(
+	'numberposts' => 1,
 	'meta_query' => array(
 		array(
 			
@@ -34,17 +35,24 @@ if( $posts ): ?>
         <div class="trips-agileinfo"> 
             <div class="col-md-6 trip-agileitsimg">
                 <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/img1.jpg" alt="Featured: "> -->
-                <?php if(has_post_thumbnail()): ?>
-                <?php the_post_thumbnail('post-thumbnail'); ?>
-            	<?php else: ?>
-            	<?php echo '<img src="'.get_template_directory_uri().'/images/img1.jpg" alt="Featured: ">' ?>
-            <?php endif; ?>
+                <?php if(has_post_thumbnail()): 
+						$post_thumbnail_id = get_post_thumbnail_id();
+						$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+					?>
+		                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
+		            <?php else: ?>
+		            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
+		            <?php endif; ?>
             </div> 
             <div class="col-md-6 trip-agileitstext welcome-w3lleft"> 
                 <h3><?php __(the_title(), 'suntour'); ?></h3>
                 <h5><?php __(the_author(), 'suntour'); ?></h5>
+                <div class="sh-social">
+                	<a class="fbs" href="#"><i class="fa fa-facebook"></i></a>
+                	<a class="ggs" href="#"><i class="fa fa-google-plus"></i></a>
+                </div>
                 <p><?php __(the_excerpt(), 'suntour'); ?></p>
-                <a href="#" class="find-about" data-toggle="modal" data-target="#feaModal<?php the_ID(); ?>">Find out more</a>
+                <a href="#" class="find-about" data-toggle="modal" data-target="#feaModal<?php the_ID(); ?>"><?php echo __('Find out more','suntour') ?></a>
             </div> 
            
             <div class="clearfix"> </div>
@@ -56,8 +64,14 @@ if( $posts ): ?>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><?php __(the_title(), 'suntour'); ?></h4>
-                       
-                        <img src="<?php echo get_template_directory_uri(); ?>//images/modal1.jpg" alt="Featured" class="img-responsive">
+                       <?php if(has_post_thumbnail()): 
+									$post_thumbnail_id = get_post_thumbnail_id();
+        							$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+								?>
+					                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
+					            <?php else: ?>
+					            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
+					            <?php endif; ?>
                         <h5><?php __(the_author(), 'suntour'); ?></h5>
                         <p><?php __(the_content(), 'suntour'); ?></p>
                     </div>
@@ -76,9 +90,9 @@ if( $posts ): ?>
     $args = array( 'numberposts' => '4', 'category' => $current_id );
     $latest_query  = new WP_Query;
     $latest_query->query( array(
-        'cat'                 => $current_id,
-        'posts_per_page'      => 5,
-        'numberposts' => '4',
+        'cat'  => $current_id,
+        'posts_per_page'      => 4,
+        'numberposts' => 4,
         'orderby'   => 'id',
         'order' => 'DESC'
     ));
@@ -95,18 +109,28 @@ if( $posts ): ?>
 <div class="news" id="news">
 	<div class="container">
 		<div class="title-main-w3ls">
-			<h3 class="title-w3-agile"><span>L</span>atest <span>N</span>ews</h3>
+			<h3 class="title-w3-agile"><?php echo __('<span>L</span>atest <span>N</span>ews', 'suntour') ?></h3>
 		</div>
 		<div class="classes_wrapper">
 		 	<div class="row class_box">
 		 		<?php while($latest_query->have_posts()): $latest_query->the_post();?>
- 			  	<div class="col-md-6 classes-grid-w3ls">
-					<div class="class_right">
+ 			  	<div class="col-md-6 classes-grid-w3ls news-item">
+					<div class="class_right lt-ex">
 						<h3><a href="#" data-toggle="modal" data-target="#myModal1"><?php __(the_author(), 'suntour'); ?><br><span><?php __(the_title(), 'suntour'); ?></span></a></h3>
-						<p class="w3_agileits_para"><?php __(the_excerpt(), 'suntour'); ?></p>
-						<a href="#" class="find-about" data-toggle="modal" data-target="#latestModal<?php the_ID(); ?>">Find out more</a>
+						<p class="w3_agileits_para"><?php $excerpt = the_excerpt();
+						$excerpt = substr( $excerpt , 0, 50); __($excerpt, 'suntour') ?></p>
+						<a href="#" class="find-about" data-toggle="modal" data-target="#latestModal<?php the_ID(); ?>"><?php echo __('Find out more', 'suntour') ?></a>
 					</div>
-					<div class="class_left img1">
+
+					<div class="class_left img1 lt-thumb">
+						<?php if(has_post_thumbnail()): 
+									$post_thumbnail_id = get_post_thumbnail_id();
+        							$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+								?>
+					                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
+					            <?php else: ?>
+					            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
+					            <?php endif; ?>
 						<ul>
 							<li><?php echo  __(get_the_date('d'), 'suntour'); ?></li>
 							<li><?php echo  __(get_the_date('m'), 'suntour'); ?></li>
@@ -122,11 +146,15 @@ if( $posts ): ?>
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h4><?php __(the_title(), 'suntour'); ?></h4>
-								<?php if(has_post_thumbnail()): ?>
-				                <?php the_post_thumbnail('post-thumbnail'); ?>
-				            	<?php else: ?>
-				            	<?php echo '<img src="'.get_template_directory_uri().'/images/team1.jpg" alt="Featured: " class="img-responsive">  ' ?>
-				            <?php endif; ?>
+								<?php if(has_post_thumbnail()): 
+									$post_thumbnail_id = get_post_thumbnail_id();
+        							$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+								?>
+					                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
+					            <?php else: ?>
+					            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
+					            <?php endif; ?>
+				          
 								<h5><?php __(the_author(), 'suntour'); ?></h5>
 								<p><?php __(the_content(), 'suntour'); ?></p>
 							</div>
@@ -159,23 +187,30 @@ if( $posts ): ?>
    		
  ?>
 	<!-- team -->
-	<div class="team" id="team<?php echo $news_cat->cat_ID ?>">
+	<div class="team scrollme" id="team<?php echo $news_cat->cat_ID ?>" class="animateme"
+      data-when="span"
+      data-from="0"
+      data-to="1"
+      data-easing="easeinout"
+      data-rotatey="360">
 		<div class="container">
 			
-			<div class="w3_testimonials_grids">
+			<div class="w3_testimonials_grids team-grid">
 				<?php while ($news_query->have_posts()):
 					$news_query->the_post();
 				?>
-				<div class="col-md-3 w3layouts_team_grid">
+				<div class="col-md-3 w3layouts_team_grid team-item">
 					<div class="agileits_grid w3_team_grid1">
 						<figure class="effect-layla">
-							<!-- <img src="<?php echo get_template_directory_uri(); ?>/images/img1.jpg" alt="Featured: "> -->
-				                <?php if(has_post_thumbnail()): ?>
-				                <?php the_post_thumbnail('post-thumbnail'); ?>
-				            	<?php else: ?>
-				            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: ">' ?>
+			                <?php if(has_post_thumbnail()): 
+								$post_thumbnail_id = get_post_thumbnail_id();
+    							$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+							?>
+				                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
+				            <?php else: ?>
+				            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
 				            <?php endif; ?>
-							<img src="images/team1.jpg" alt=" " class="img-responsive" />
+				         
 							<figcaption>
 								<ul class="social-nav model-3d-0 footer-social w3_agile_social">
 									<li><a href="#" class="facebook">
@@ -193,7 +228,7 @@ if( $posts ): ?>
 					</div>
 					<h4><?php the_title(); ?></h4>
 					<p><?php the_author(); ?></p>
-					<p><a href="#" class="find-about" data-toggle="modal" data-target="#allModal<?php the_ID(); ?>">Find out more</a></p>
+					<p><a href="#" class="find-about" data-toggle="modal" data-target="#allModal<?php the_ID(); ?>"><?php echo __('Find out more', 'suntour') ?></a></p>
 				</div>
 				<!-- Modal1 -->
 				<div class="modal fade" id="allModal<?php the_ID(); ?>" tabindex="-1" role="dialog">
@@ -203,8 +238,11 @@ if( $posts ): ?>
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h4><?php __(the_title(), 'suntour'); ?></h4>
-								<?php if(has_post_thumbnail()): ?>
-					                <?php the_post_thumbnail('post-thumbnail'); ?>
+								<?php if(has_post_thumbnail()): 
+									$post_thumbnail_id = get_post_thumbnail_id();
+        							$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+								?>
+					                <img src="<?php  echo $post_thumbnail_url; ?>" alt="Featured: " class="img-responsive">
 					            <?php else: ?>
 					            	<?php echo '<img src="'.get_template_directory_uri().'/images/about.jpg" alt="Featured: " class="img-responsive">' ?>
 					            <?php endif; ?>
@@ -223,4 +261,15 @@ if( $posts ): ?>
 	<?php wp_reset_postdata(); ?>
 	<?php endif; ?>
 <!-- //team -->
+<script src="<?php echo get_template_directory_uri() ?>/js/scroll-me.min.js"></script>
+<script>
+	$(function(){
+		// $('.team-grid').masonry({
+		//   // options
+		//   itemSelector: '.team-item',
+		// });
+
+
+	})
+</script>
 <?php get_footer(); ?>

@@ -81,6 +81,12 @@ define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
+	
+	/** Memory Limit */
+define('WP_MEMORY_LIMIT', '500M');
+define( 'WP_MAX_MEMORY_LIMIT', '500M');
+
+
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');

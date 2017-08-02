@@ -31,6 +31,18 @@ jQuery(document).ready(function($){
 		closeNav();
 	});
 
+	$(document).on('click', '#trigger-overlay, .overlay-close', function(e){
+		e.preventDefault();
+		if ($('.overlay').hasClass('open')) {
+			$('.overlay').removeClass('open');
+			$('body').removeClass('open-menu');
+		}else{
+			$('.overlay').addClass('open');
+			$('body').addClass('open-menu');
+
+		}
+	});
+
 	
 	
 	
