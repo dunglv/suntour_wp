@@ -174,9 +174,7 @@
 		margin: 0;
 		border-radius: 0px;
 	}
-	#nav_lang .sub-menu{
-		left: 50%;
-	}
+	
 }
 @media screen and (max-width: 767px){
 	.header-w3ls {

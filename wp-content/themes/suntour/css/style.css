@@ -937,11 +937,7 @@ button#trigger-overlay i {
     min-width: auto;
     width: auto;
     padding: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 0;
 }
 
 .bottons-agileits-w3layouts.cv-lang .sub-menu a {
@@ -1204,6 +1200,7 @@ input.checkbox:checked:after {
 
 .modal-content .modal-header img {
     width: 100%;
+    max-height: 500px;
 }
 
 .modal-content h4 {
@@ -3894,6 +3891,8 @@ a.pinterest .front {
     position: relative;
 }
 
+
+
 .trip-agileitsimg::before,
 .trip-agileitsimg::after {
     content: '';
@@ -3995,7 +3994,26 @@ a.pinterest .front {
     -o-transition: 0.2s;
     transition: 0.2s;
 }
+.trips {}
 
+.trips .welcome-w3lleft h3 {
+    font-family: 'Lora', serif;
+    font-size: 2em;
+    font-weight: 500;
+    color: #fd0006;
+    max-height: 61px;
+    overflow: hidden;
+}
+@media screen and (max-width: 767px){
+    .trip-agileitsimg {
+        height: auto;
+        max-height: 400px;
+        overflow: hidden;
+    } 
+    .trips .welcome-w3lleft h3{
+        font-size: 1.5em;
+    }
+}
 .welcome-w3lleft {
     float: right;
 }
@@ -4080,19 +4098,10 @@ a.pinterest .front {
 .news .class_left ul{
     z-index: 2;
 }
-.trips {}
 
-.trips .welcome-w3lleft h3 {
-    font-family: 'Lora', serif;
-    font-size: 2em;
-    font-weight: 500;
-    color: #fd0006;
-    height: 61px;
-    overflow: hidden;
-}
 
 .modal-content h4 {
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 

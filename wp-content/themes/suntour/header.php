@@ -5,7 +5,6 @@
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Spa Sublime Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, SmartPhone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- custom-theme -->
 <link rel="icon" type="image/icon" href="<?php echo get_template_directory_uri(); ?>/images/logo.png">
@@ -18,7 +17,7 @@
 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" type="text/css" rel="stylesheet" media="all"> <!-- css -->
 <link href="<?php echo get_template_directory_uri(); ?>/css/owl.theme.min.css" type="text/css" rel="stylesheet" media="all"> <!-- css -->
 <link href="<?php echo get_template_directory_uri(); ?>/css/owl.carousel.min.css" type="text/css" rel="stylesheet" media="all"> <!-- css -->
-<link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'><!-- Light-box css -->
+<link href='<?php echo get_template_directory_uri(); ?>/css/simplelightbox.min.css' rel='stylesheet' type='text/css'><!-- Light-box css -->
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/flexslider.css" type="text/css" media="screen" property="" /><!-- flexslider css -->
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
@@ -40,28 +39,34 @@
 		<header>
 			<div class="wr-hd">
 				<div id="hd">
-					<a href="<?php  echo home_url(); ?>" class="link-logo"><img alt="Suntour " src="<?php echo get_template_directory_uri(); ?>/images/logo.png" class="logo"></a>
-					
-					<div class="hd-r">
-					                 <form action="<?php echo home_url( '/' ); ?>" value="<?php the_search_query(); ?>" method="get" enctype="multipart/form-data" onsubmit="return checkformsearch(this);">
-						
-						<p class="search">
-							<input class="txf" placeholder="<?php echo __('Search key...', 'suntour') ?>" name="s" id="key">
-							<input class="btn" value="" type="submit">
-						</p>
-							<?php __(wp_nav_menu( array( 
-								'theme_location' => 'language-menu',
-								'container_class' => 'language-menu lang',
-								'menu_id' => 'nav_lang'
-							) ), 'suntour'); ?> 
-							<!-- <a href="http://kinhdo.vn/?lang=en" class="lang-en">English</a> -->
-						<!-- <p class="links">
-						    <a href="http://vn.mondelezinternational.com/vi-vn" target="_blank">Mondelez Kinh Đô</a>
-							<a href="/Vacancies.aspx">Nghề nghiệp</a>
-							<a href="/partner.html">Đối tác</a>
-							
-						</p> -->
-					                  </form>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<a href="<?php  echo home_url(); ?>" class="link-logo"><img alt="Suntour " src="<?php echo get_template_directory_uri(); ?>/images/logo.png" class="logo"></a>
+								
+								<div class="hd-r">
+								   <form action="<?php echo home_url( '/' ); ?>" value="<?php the_search_query(); ?>" method="get" enctype="multipart/form-data" onsubmit="return checkformsearch(this);">
+									
+									<p class="search">
+										<input class="txf" placeholder="<?php echo __('Search key...', 'suntour') ?>" name="s" id="key">
+										<input class="btn" value="" type="submit">
+									</p>
+										<?php __(wp_nav_menu( array( 
+											'theme_location' => 'language-menu',
+											'container_class' => 'language-menu lang',
+											'menu_id' => 'nav_lang'
+										) ), 'suntour'); ?> 
+										<!-- <a href="http://kinhdo.vn/?lang=en" class="lang-en">English</a> -->
+									<!-- <p class="links">
+									    <a href="http://vn.mondelezinternational.com/vi-vn" target="_blank">Mondelez Kinh Đô</a>
+										<a href="/Vacancies.aspx">Nghề nghiệp</a>
+										<a href="/partner.html">Đối tác</a>
+										
+									</p> -->
+								     </form>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

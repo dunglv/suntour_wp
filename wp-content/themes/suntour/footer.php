@@ -56,57 +56,10 @@
 <?php wp_footer(); ?>
 <!-- //js -->
 <!-- Calendar -->
-				<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.js"></script>
-				  <script>
-						  $(function() {
-							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
-						  });
-				  </script> -->
-			<!-- //Calendar -->
- 
-
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.nicescroll.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
 <!--search-bar-->
-		<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>	
+<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>	
 <!--//search-bar-->
-
-<!--responsiveslides js-->
-<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/responsiveslides.min.js"></script> -->
-			<!-- <script>
-						// You can also use "$(window).load(function() {"
-						$(function () {
-						  // Slideshow 4
-						  $("#slider4").responsiveSlides({
-							auto: true,
-							pager:true,
-							nav:false,
-							speed: 500,
-							namespace: "callbacks",
-							before: function () {
-							  $('.events').append("<li>before event fired.</li>");
-							},
-							after: function () {
-							  $('.events').append("<li>after event fired.</li>");
-							}
-						  });
-					
-						});
-			</script> -->
-<!--responsiveslides js-->
-<!-- flexSlider -->
-					<!-- <script defer src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider.js"></script>
-					<script type="text/javascript">
-					$(window).load(function(){
-					  $('.flexslider').flexslider({
-						animation: "slide",
-						start: function(slider){
-						  $('body').removeClass('loading');
-						}
-					  });
-					});
-				  </script> -->
-				<!-- //flexSlider -->
 <!--menu script-->
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.6.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/classie.js"></script>
@@ -133,25 +86,30 @@
 </script>
 <!-- start-smoth-scrolling -->
 <!-- smooth scrolling -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-		/*
-			var defaults = {
-			containerID: 'toTop', // fading element id
-			containerHoverID: 'toTopHover', // fading element hover id
-			scrollSpeed: 1200,
-			easingType: 'linear' 
-			};
-		*/								
-		$().UItoTop({ easingType: 'easeOutQuart' });
-		});
-	</script>
+<script type="text/javascript">
+   	jQuery(function($){
+	$("html").niceScroll({styler:"fb",cursorcolor:"#fe4630", cursorwidth: '6', cursorborderradius: '10px', background: '#FFFFFF', spacebarenabled:false, cursorborder: '0',  zindex: '1000'});
+    $(".scrollbar1").niceScroll({styler:"fb",cursorcolor:"#fe4630", cursorwidth: '6', cursorborderradius: '0',autohidemode: 'false', background: '#FFFFFF', spacebarenabled:false, cursorborder: '0'});
+		$(".scrollbar1").getNiceScroll();
+	    if ($('nav.gn-menu-wrapper').hasClass('scrollbar1-collapsed')) {
+	        $(".scrollbar1").getNiceScroll().hide();
+	    }
+
+	    $().UItoTop({ easingType: 'easeOutQuart' });
+	});
+
+</script>
 	<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!-- //smooth scrolling -->
 
 <!--js for bootstrap working-->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/bk/wow.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/bk/prefixfree.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/bk/script.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+
 <!-- //for bootstrap working -->
 </body>
 </html>
